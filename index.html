@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/bibtexify.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <title>Peters Lab</title>
 
 </head>
@@ -170,8 +167,7 @@
 <section class="publications_section" id="publications">
         <div class="section_container">
                 <h2 class="section_title">Publications</h2>
-                <div id="bibtex_display"></div>
-                <!-- BibTeX entries will be loaded dynamically from publications.bib.html -->
+                <p>Publications content here</p>
         </div>
 </section>
 
@@ -237,27 +233,5 @@
         </div>
     </footer>
         <script src="script.js"></script>
-        <script src="bibtexify.js"></script>
-        <script>
-            $(document).ready(function() {
-                fetch('publications.bib.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        // Create a temporary container to parse the HTML
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = data;
-                        // Find the script tag with type="text/bibtex"
-                        const bibtexScript = tempDiv.querySelector('script[type="text/bibtex"]');
-                        if (bibtexScript) {
-                            // Insert the script into the DOM so Bibtexify can find it
-                            document.body.appendChild(bibtexScript);
-                            // Call bibtexify with the correct parameters
-                            setTimeout(function() {
-                                bibtexify("#bibtex_input", "bibtex_display");
-                            }, 100);
-                        }
-                    });
-            });
-        </script>
 </body>
 </html>
