@@ -286,13 +286,13 @@ body {
 /* Research Section */
 .research_section {
     padding: 60px 20px;
-    background-color: var(--background);
+    background-color: #F5F5F5;
     color: var(--text);
 }
 
 .publications_section {
     padding: 60px 20px;
-    background-color: var(--background);
+    background-color: #F5F5F5;
     color: var(--text);
 }
 
@@ -321,7 +321,7 @@ body {
 .about_us {
     padding: 60px 20px;
     color: var(--text);
-    background-color: var(--background);
+    background-color: #EBEBEB;
 }
 
 .section_container {
@@ -455,7 +455,7 @@ body {
 .team_section {
     padding: 60px 20px;
     color: var(--text);
-    background-color: var(--background);
+    background-color: #E0E0E0;
 }
 
 .team_section .section_title {
@@ -557,7 +557,7 @@ body {
 .sponsor_section {
     padding: 60px 20px;
     color: #1e293b;
-    background-color: #ffffff;
+    background-color: #F5F5F5;
 }
 
 .sponsor_section .section_title {
@@ -674,7 +674,7 @@ body {
 .contact_section {
     padding: 60px 20px;
     color: var(--text);
-    background-color: var(--background);
+    background-color: #EBEBEB;
 }
 
 .contact_section .section_title {
@@ -971,6 +971,7 @@ body {
 .contact_section {
     padding: 60px 20px;
     color: #762d78;
+    background-color: #EBEBEB;
 }
 
 .contact_section .section_title {
