@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>All Publications - Peters Lab</title>
+</head>
+
+<body>
+    <!-- Navigation Bar --> 
+<nav class="navbar">
+    <div class="nav-left">
+        <span class="logo">The Peters Molecular Arbovirology Laboratory</span>
+    </div>
+
+    <!-- Hamburger button -->
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Dropdown menu -->
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="index.html#about" class="nav-item">About</a></li>
+        <li><a href="index.html#people" class="nav-item">People</a></li>
+        <li><a href="index.html#publications" class="nav-item">Featured Publications</a></li>
+        <li><a href="publications.html" class="nav-item">All Publications</a></li>
+        <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Publications Section -->
+<section class="publications_section" id="publications">
+    <div class="section_container">
+        <h2 class="section_title" style="text-align: center; color: var(--primary);">All Publications</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: var(--text);">Complete collection of our research publications</p>
+        
+        <!-- Search Bar -->
+        <div class="publications_search">
+            <input 
+                type="text" 
+                id="pubSearch" 
+                class="search_input" 
+                placeholder="Search by title, author, or year..."
+            >
+        </div>
+
+        <!-- Publications Grid -->
+        <div id="articles" class="articles_grid"></div>
+
+        <script>
+        let allPublications = [];
+
+        fetch('references.json')
+            .then(response => response.json())
+            .then(entries => {
+                allPublications = entries.sort((a, b) => (b.year || 0) - (a.year || 0));
+                renderPublications(allPublications);
+                
+                // Setup search functionality
+                const searchInput = document.getElementById('pubSearch');
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase();
+                    const filtered = allPublications.filter(entry => {
+                        const title = (entry.title || '').toLowerCase();
+                        const author = (entry.author || '').toLowerCase();
+                        const year = (entry.year || '').toLowerCase();
+                        return title.includes(query) || author.includes(query) || year.includes(query);
+                    });
+                    renderPublications(filtered);
+                });
+            })
+            .catch(error => {
+                document.getElementById('articles').innerHTML = 
+                    '<p style="color: var(--text); grid-column: 1/-1;">Error loading publications. Please ensure references.json exists.</p>';
+            });
+
+        function renderPublications(entries) {
+            const container = document.getElementById('articles');
+            
+            if (entries.length === 0) {
+                container.innerHTML = '<p style="color: var(--text); grid-column: 1/-1; text-align: center;">No publications found.</p>';
+                return;
+            }
+
+            container.innerHTML = entries.map(entry => `
+                <div class="publication_card">
+                    <div class="pub_year">${entry.year || 'N/A'}</div>
+                    <div class="pub_title">${entry.title || 'Untitled'}</div>
+                    <div class="pub_authors">${entry.author || 'Unknown'}</div>
+                    <div class="pub_journal">
+                        ${entry.journal || ''}${entry.journal && entry.volume ? ', ' : ''}${entry.volume || ''}
+                        ${entry.pages ? ` pp. ${entry.pages}` : ''}
+                    </div>
+                    ${entry.doi ? `<div class="pub_doi"><a href="https://doi.org/${entry.doi}" target="_blank">DOI: ${entry.doi}</a></div>` : ''}
+                </div>
+            `).join('');
+        }
+    </script>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer_container">
+        <!-- Left side: Logo + Name -->
+        <div class="footer_section footer_brand">
+            <img src="Images/lab_logo.png" alt="Hobson-Peters Lab Logo" class="footer_logo">
+            <h3 class="footer_title">Hobson-Peters Research Lab</h3>
+            <p class="footer_subtext">Innovate • Discover • Collaborate</p>
+        </div>
+        <!-- Middle: Quick Links -->
+        <div class="footer_section">
+            <h4>Quick Links</h4>
+            <ul class="footer_links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#people">People</a></li>
+                <li><a href="index.html#publications">Featured Publications</a></li>
+                <li><a href="publications.html">All Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Right: Contact -->
+        <div class="footer_section">
+            <h4>Contact</h4>
+            <div class="footer_socials">
+                <a href="mailto:j.hobsonpeters@uq.edu.au" class="social_icon">Email</a>
+                <!-- Add more contact/social links as needed -->
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer_bottom">
+        © 2026 Hobson-Peters Research Lab. All Rights Reserved.
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -27,8 +27,8 @@
         <li><a href="#home" class="nav-item">Home</a></li>
         <li><a href="#about" class="nav-item">About</a></li>
         <li><a href="#people" class="nav-item">People</a></li>
-        <li><a href="#research" class="nav-item">Research</a></li>
-        <li><a href="#publications" class="nav-item">Publications</a></li>
+        <li><a href="#publications" class="nav-item">Featured Publications</a></li>
+        <li><a href="publications.html" class="nav-item">All Publications</a></li>
         <li><a href="#contact" class="nav-item">Contact</a></li>
     </ul>
 </nav>
@@ -164,50 +164,31 @@
 <!-- Publications Section -->
 <section class="publications_section" id="publications">
         <div class="section_container">
-                <h2 class="section_title">Publications</h2>
+                <h2 class="section_title" style="text-align: center; color: var(--primary);">Featured Publications</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--text);">Discover our latest research contributions</p>
                 
-                <!-- Search Bar -->
-                <div class="publications_search">
-                    <input 
-                        type="text" 
-                        id="pubSearch" 
-                        class="search_input" 
-                        placeholder="Search by title, author, or year..."
-                    >
+                <!-- Featured Publications Grid -->
+                <div id="featured-articles" class="articles_grid"></div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="publications.html" class="button" style="display: inline-block; padding: 12px 28px; text-decoration: none;">View All Publications</a>
                 </div>
 
-                <!-- Publications Grid -->
-                <div id="articles" class="articles_grid"></div>
-
                 <script>
-        let allPublications = [];
-
         fetch('references.json')
             .then(response => response.json())
             .then(entries => {
-                allPublications = entries;
-                renderPublications(entries);
-                
-                // Setup search functionality
-                const searchInput = document.getElementById('pubSearch');
-                searchInput.addEventListener('input', (e) => {
-                    const query = e.target.value.toLowerCase();
-                    const filtered = allPublications.filter(entry => {
-                        const title = (entry.title || '').toLowerCase();
-                        const author = (entry.author || '').toLowerCase();
-                        const year = (entry.year || '').toLowerCase();
-                        return title.includes(query) || author.includes(query) || year.includes(query);
-                    });
-                    renderPublications(filtered);
-                });
+                // Show only the 3 most recent publications
+                const featured = entries.sort((a, b) => (b.year || 0) - (a.year || 0)).slice(0, 3);
+                renderFeaturedPublications(featured);
             })
             .catch(error => {
-                document.getElementById('articles').innerHTML = 
+                document.getElementById('featured-articles').innerHTML = 
                     '<p style="color: var(--text); grid-column: 1/-1;">Error loading publications. Please ensure references.json exists.</p>';
             });
 
-        function renderPublications(entries) {
-            const container = document.getElementById('articles');
+        function renderFeaturedPublications(entries) {
+            const container = document.getElementById('featured-articles');
             
             if (entries.length === 0) {
                 container.innerHTML = '<p style="color: var(--text); grid-column: 1/-1; text-align: center;">No publications found.</p>';
@@ -262,9 +243,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer_container">
-            <!-- Left side: Logo + Name -->
+            <!-- Left side: Name -->
             <div class="footer_section footer_brand">
-                <img src="Images/lab_logo.png" alt="Hobson-Peters Lab Logo" class="footer_logo">
                 <h3 class="footer_title">Hobson-Peters Research Lab</h3>
                 <p class="footer_subtext">Innovate • Discover • Collaborate</p>
             </div>
@@ -275,15 +255,16 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#people">People</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#publications">Featured Publications</a></li>
+                    <li><a href="publications.html">All Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <!-- Right: Contact -->
             <div class="footer_section">
                 <h4>Contact</h4>
                 <div class="footer_socials">
-                    <a href="mailto:j.hobsonpeters@uq.edu.au" class="social_icon">Email</a>
+                    <a href="mailto:kierrencheng10@gmail.com" class="social_icon">Email</a>
                     <!-- Add more contact/social links as needed -->
                 </div>
             </div>
