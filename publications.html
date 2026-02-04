@@ -48,8 +48,8 @@
             >
         </div>
 
-        <!-- Publications Grid -->
-        <div id="articles" class="articles_grid"></div>
+        <!-- Publications by Year -->
+        <div id="publications-by-year" class="publications_by_year"></div>
 
         <script>
         let allPublications = [];
@@ -58,7 +58,7 @@
             .then(response => response.json())
             .then(entries => {
                 allPublications = entries.sort((a, b) => (b.year || 0) - (a.year || 0));
-                renderPublications(allPublications);
+                renderPublicationsByYear(allPublications);
                 
                 // Setup search functionality
                 const searchInput = document.getElementById('pubSearch');
@@ -70,34 +70,71 @@
                         const year = (entry.year || '').toLowerCase();
                         return title.includes(query) || author.includes(query) || year.includes(query);
                     });
-                    renderPublications(filtered);
+                    renderPublicationsByYear(filtered);
                 });
             })
             .catch(error => {
-                document.getElementById('articles').innerHTML = 
-                    '<p style="color: var(--text); grid-column: 1/-1;">Error loading publications. Please ensure references.json exists.</p>';
+                document.getElementById('publications-by-year').innerHTML = 
+                    '<p style="color: var(--text);">Error loading publications. Please ensure references.json exists.</p>';
             });
 
-        function renderPublications(entries) {
-            const container = document.getElementById('articles');
+        function renderPublicationsByYear(entries) {
+            const container = document.getElementById('publications-by-year');
             
             if (entries.length === 0) {
-                container.innerHTML = '<p style="color: var(--text); grid-column: 1/-1; text-align: center;">No publications found.</p>';
+                container.innerHTML = '<p style="color: var(--text); text-align: center;">No publications found.</p>';
                 return;
             }
 
-            container.innerHTML = entries.map(entry => `
-                <div class="publication_card">
-                    <div class="pub_year">${entry.year || 'N/A'}</div>
-                    <div class="pub_title">${entry.title || 'Untitled'}</div>
-                    <div class="pub_authors">${entry.author || 'Unknown'}</div>
-                    <div class="pub_journal">
-                        ${entry.journal || ''}${entry.journal && entry.volume ? ', ' : ''}${entry.volume || ''}
-                        ${entry.pages ? ` pp. ${entry.pages}` : ''}
+            // Group publications by year
+            const grouped = {};
+            entries.forEach(entry => {
+                const year = entry.year || 'N/A';
+                if (!grouped[year]) {
+                    grouped[year] = [];
+                }
+                grouped[year].push(entry);
+            });
+
+            // Create HTML for each year dropdown
+            const years = Object.keys(grouped).sort((a, b) => b - a);
+            container.innerHTML = years.map((year, index) => {
+                const publications = grouped[year];
+                return `
+                    <div class="year-section">
+                        <button class="year-dropdown" onclick="toggleYear(this)">
+                            <span class="year-title">${year}</span>
+                            <span class="year-count">(${publications.length})</span>
+                            <span class="year-toggle">▼</span>
+                        </button>
+                        <div class="year-content" style="display: ${index === 0 ? 'block' : 'none'};">
+                            <div class="publications-grid">
+                                ${publications.map(entry => `
+                                    <div class="publication_card">
+                                        <div class="pub_year">${entry.year || 'N/A'}</div>
+                                        <div class="pub_title">${entry.title || 'Untitled'}</div>
+                                        <div class="pub_authors">${entry.author || 'Unknown'}</div>
+                                        <div class="pub_journal">
+                                            ${entry.journal || ''}${entry.journal && entry.volume ? ', ' : ''}${entry.volume || ''}
+                                            ${entry.pages ? ` pp. ${entry.pages}` : ''}
+                                        </div>
+                                        ${entry.doi ? `<div class="pub_doi"><a href="https://doi.org/${entry.doi}" target="_blank">DOI: ${entry.doi}</a></div>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
                     </div>
-                    ${entry.doi ? `<div class="pub_doi"><a href="https://doi.org/${entry.doi}" target="_blank">DOI: ${entry.doi}</a></div>` : ''}
-                </div>
-            `).join('');
+                `;
+            }).join('');
+        }
+
+        function toggleYear(button) {
+            const content = button.nextElementSibling;
+            const toggle = button.querySelector('.year-toggle');
+            const isVisible = content.style.display === 'block';
+            
+            content.style.display = isVisible ? 'none' : 'block';
+            toggle.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
         }
     </script>
     </div>
@@ -106,11 +143,9 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="footer_container">
-        <!-- Left side: Logo + Name -->
+        <!-- Left side: Name -->
         <div class="footer_section footer_brand">
-            <img src="Images/lab_logo.png" alt="Hobson-Peters Lab Logo" class="footer_logo">
             <h3 class="footer_title">Hobson-Peters Research Lab</h3>
-            <p class="footer_subtext">Innovate • Discover • Collaborate</p>
         </div>
         <!-- Middle: Quick Links -->
         <div class="footer_section">

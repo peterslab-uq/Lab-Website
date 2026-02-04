@@ -70,5 +70,23 @@
     "copyright": "Copyright 2013 Elsevier B.V., All rights reserved. MEDLINE® is the source for the MeSH terms of this document.",
     "ENTRYTYPE": "article",
     "ID": "FrostMelindaJ.2012CoVW"
+  },
+  {
+    "year": "2024",
+    "volume": "2",
+    "title": "Synthetic recovery of Yada Yada virus expands insect-specific alphavirus knowledge and facilitates production of chimeric viruses",
+    "number": "1",
+    "language": "eng",
+    "keywords": "631/326/596 ;  631/326/596/1282 ;  631/326/596/2554 ;  Biomedical and Life Sciences ;  Biomedicine ;  Cell culture ;  Cell lines ;  Chimeras ;  Cloning ;  Encephalitis ;  Epidemiology ;  Genomes ;  Metagenomics ;  Monoclonal antibodies ;  Mosquitoes ;  Proteins ;  Public Health ;  Replication ;  Reptiles & amphibians ;  RNA viruses ;  Structural proteins ;  Vaccine ;  Vaccines ;  Virology ;  Viruses",
+    "journal": "Npj viruses",
+    "issn": "2948-1767",
+    "copyright": "The Author(s) 2024 corrected publication 2025",
+    "address": "London",
+    "author": "Bell, Mikaela G. and Parry, Rhys H. and Lee, Tricia S. E. and Habarugira, Gervais and McMahon, Isabella E. and Thompson, Madeline A. and Modhiran, Naphak and Watterson, Daniel and Batovska, Jana and Lynch, Stacey E. and Hall, Roy A. and Harrison, Jessica J. and Hobson-Peters, Jody",
+    "abstract": "Abstract Few insect-specific alphaviruses (ISA) have been discovered, with even fewer culturable to facilitate full characterisation. Here, we report the recovery of an infectious clone of Yada Yada virus (YYV)—a virus previously only detected by metagenomic sequencing of mosquito homogenates. Using the infectious clone, we confirmed the inability of YYV to replicate in vertebrate cells in vitro, with replication limited to only Aedes mosquito-derived cell lines. We further produced and characterised the first monoclonal antibodies (mAbs) to ISAs. Through successful replacement of the structural proteins of YYV with those of other ISAs, Eilat virus, Agua Salud (ASALV), Taï Forest (TALV) and Mwinilunga alphaviruses (MWAV), we established that a replication block for in vitro culture of TALV and MWAV in mosquito cells does not exist at virus entry. Unexpectedly, ASALV structural proteins were recognised by cross-reactive mAbs made to chikungunya (CHIKV) and Ross River viruses (RRV), suggesting a potential antigenic link between ASALV and pathogenic alphaviruses. The YYV genetic backbone was also investigated to generate chimeras displaying the structural proteins of various pathogenic vertebrate-infecting alphaviruses including CHIKV, RRV, Barmah Forest, Sindbis and Mayaro viruses. These chimeras retained the antigenic properties of the parental viruses and did not replicate in vertebrate cells, demonstrating the potential of the YYV platform for vaccine and diagnostic antigen production.",
+    "publisher": "Nature Portfolio",
+    "pages": "45-14",
+    "ENTRYTYPE": "article",
+    "ID": "BellMikaelaG.2024SroY"
   }
 ]
