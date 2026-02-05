@@ -451,6 +451,184 @@ body {
     color: var(--background);
 }
 
+/* Research Section */
+.research_section {
+    padding: 60px 20px;
+    color: var(--text);
+    background-color: #F7F9FC;
+}
+
+.research_title {
+    color: var(--primary);
+    text-align: center;
+}
+
+.section_subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 40px;
+}
+
+.research_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.research_card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.research_card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.research_card p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* ISVac Platform Section */
+.isvac_section {
+    padding: 60px 20px;
+    color: var(--text);
+    background-color: #EBEBEB;
+}
+
+.isvac_content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.isvac_text {
+    flex: 1 1 350px;
+}
+
+.isvac_text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.isvac_video {
+    flex: 1 1 350px;
+    width: 100%;
+}
+
+.isvac_image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.isvac_img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mozzie mAbs Section */
+.mozzie_mabs_section {
+    padding: 60px 20px;
+    color: var(--primary);
+    background-color: #F7F9FC;
+}
+
+.mozzie_mabs_section .mozzie_title {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.mozzie_content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.mozzie_image_wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mozzie_text {
+    flex: 1 1 350px;
+}
+
+.mozzie_text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: var(--primary);
+}
+
+.mozzie_button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.mozzie_button .button {
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.mozzie_button .button:hover {
+    background-color: var(--secondary);
+}
+
+.mozzie_image {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+}
+
+.mozzie_img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* Team Section */
 .team_section {
     padding: 60px 20px;
@@ -1288,4 +1466,73 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+}
+/* Alumni Section */
+.alumni_section {
+    padding: 60px 20px;
+    color: var(--text);
+    background-color: #EBEBEB;
+}
+
+.alumni_section .section_title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.alumni_section .section_subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 40px;
+}
+
+.alumni_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.alumni_card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alumni_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.alumni_name {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.alumni_role {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.alumni_years {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.alumni_current {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
