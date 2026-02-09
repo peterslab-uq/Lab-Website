@@ -227,7 +227,7 @@ body {
 
 /* Hero Section */
 .hero_section {
-    background: linear-gradient(rgba(31, 58, 95, 0.6), rgba(31, 58, 95, 0.6)), url('Images/lab_group_photo.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(31, 58, 95, 0.6), rgba(31, 58, 95, 0.6)), url('Images/Group.jpg') center/cover no-repeat;
     padding: 120px 0;
     color: white;
 }
@@ -505,8 +505,11 @@ body {
 /* ISVac Platform Section */
 .isvac_section {
     padding: 60px 20px;
-    color: var(--text);
     background-color: #EBEBEB;
+}
+
+.isvac_section .section_title {
+    color: var(--primary);
 }
 
 .isvac_content {
@@ -528,6 +531,7 @@ body {
     line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
+    color: var(--secondary);
 }
 
 .isvac_video {
