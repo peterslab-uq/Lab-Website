@@ -33,7 +33,11 @@ This website showcases the research, team, and publications of the Peters Molecu
 
 ### 4. **Research Areas**
 - 3-column responsive grid layout
-- Featured research topics with hover effects
+- Arbovirus Discovery, Diagnostics, and Vaccines cards
+- LFA.png image above Arbovirus Discovery and Diagnostics cards
+- Flavi.jpg image (50% width) above Vaccines card
+- Centered headings and descriptions
+- No background cards for minimal design
 
 ### 5. **ISVac Platform**
 - Text description with embedded YouTube video
@@ -233,4 +237,4 @@ For technical issues or contributions, refer to the repository maintainer.
 
 ---
 
-*Last Updated: February 5, 2026*
+*Last Updated: February 12, 2026*
