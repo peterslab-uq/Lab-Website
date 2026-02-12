@@ -46,17 +46,6 @@
     "ID": "Johnston_2025"
   },
   {
-    "month": "July",
-    "year": "2025",
-    "author": "Stam, Freyja E. and Bishop, Cameron R. and Tang, Bing and Cox, Abigail L. and Yan, Kexin and Slonchak, Andrii and Harrison, Jessica J. and Hobson-Peters, Jody and Hall, Roy A. and Pijlman, Gorben P. and Rawle, Daniel J. and Suhrbier, Andreas and Nguyen, Wilson",
-    "publisher": "openRxiv",
-    "doi": "10.1101/2025.07.24.666511",
-    "url": "http://dx.doi.org/10.1101/2025.07.24.666511",
-    "title": "Characterisation and phylogenetic analysis of Murray Valley encephalitis virus (MVEV) from the Ralph Doherty collection",
-    "ENTRYTYPE": "article",
-    "ID": "Stam_2025"
-  },
-  {
     "pages": "e0012352",
     "month": "September",
     "year": "2025",
@@ -138,17 +127,6 @@
     "ID": "Peterson_2024"
   },
   {
-    "month": "August",
-    "year": "2024",
-    "author": "Peterson, Alyssa J. and Hall, Roy A. and Harrison, Jessica J. and Hobson-Peters, Jody and Hugo, Leon E.",
-    "publisher": "MDPI AG",
-    "doi": "10.20944/preprints202408.1313.v1",
-    "url": "http://dx.doi.org/10.20944/preprints202408.1313.v1",
-    "title": "Unleashing Nature’s Allies: Analysing Vertical Transmission Dynamics of Insect-Specific Flaviviruses in Mosquitoes",
-    "ENTRYTYPE": "article",
-    "ID": "Peterson_2024"
-  },
-  {
     "month": "July",
     "year": "2024",
     "author": "Harrison, Jessica J. and Nguyen, Wilson and Morgan, Mahali S. and Tang, Bing and Habarugira, Gervais and de Malmanche, Henry and Freney, Morgan E. and Modhiran, Naphak and Watterson, Daniel and Cox, Abigail L. and Yan, Kexin and Yuen, Nicholas K. Y. and Bowman, Dylan H. and Kirkland, Peter D. and Bielefeldt-Ohmann, Helle and Suhrbier, Andreas and Hall, Roy A. and Rawle, Daniel J. and Hobson-Peters, Jody",
@@ -162,17 +140,6 @@
     "title": "A chimeric vaccine derived from Australian genotype IV Japanese encephalitis virus protects mice from lethal challenge",
     "ENTRYTYPE": "article",
     "ID": "Harrison_2024"
-  },
-  {
-    "month": "March",
-    "year": "2024",
-    "author": "Johnston, Ryan A. and Habarugira, Gervais and Harrison, Jessica J. and Isberg, Sally R. and Moran, Jasmin and Morgan, Mahali and Davis, Steven S. and Melville, Lorna and Howard, Christopher B. and Henry, Charles S. and Macdonald, Joanne and Bielefeldt-Ohmann, Helle and Hall, Roy A. and Hobson-Peters, Jody",
-    "publisher": "openRxiv",
-    "doi": "10.1101/2024.03.24.586480",
-    "url": "http://dx.doi.org/10.1101/2024.03.24.586480",
-    "title": "Application of chimeric antigens to paper-based diagnostics for detection of West Nile virus infections of\nCrocodylus porosus –\na novel animal test case",
-    "ENTRYTYPE": "article",
-    "ID": "Johnston_2024"
   },
   {
     "year": "2024",
@@ -202,17 +169,6 @@
     "title": "Synthetic recovery of Yada Yada virus expands insect-specific alphavirus knowledge and facilitates production of chimeric viruses",
     "ENTRYTYPE": "article",
     "ID": "Bell_2024"
-  },
-  {
-    "month": "March",
-    "year": "2023",
-    "author": "Hall, Roy and Habarugira, Gervais and Harrison, Jessica and Moran, Jasmin and Colmant, Agathe and Hobson-Peters, Jody and Isberg, Sally and Bielefeldt-Ohmann, Helle and Suen, Willy",
-    "publisher": "Springer Science and Business Media LLC",
-    "doi": "10.21203/rs.3.rs-2613856/v1",
-    "url": "http://dx.doi.org/10.21203/rs.3.rs-2613856/v1",
-    "title": "A chimeric vaccine protects saltwater crocodiles (Crocodylus porosus) from skin lesions caused by West Nile virus",
-    "ENTRYTYPE": "article",
-    "ID": "Hall_2023"
   },
   {
     "month": "June",
@@ -592,17 +548,6 @@
     "issn": "1999-4915",
     "volume": "13",
     "title": "Insect-Specific Flavivirus Replication in Mammalian Cells Is Inhibited by Physiological Temperature and the Zinc-Finger Antiviral Protein",
-    "ENTRYTYPE": "article",
-    "ID": "Colmant_2021"
-  },
-  {
-    "month": "February",
-    "year": "2021",
-    "author": "Colmant, Agathe M.G. and Hobson-Peters, Jody and Slijkerman, Teun A.P. and Harrison, Jessica J. and Pijlman, Gorben P. and van Oers, Monique M. and Simmonds, Peter and Hall, Roy A. and Fros, Jelke J.",
-    "publisher": "MDPI AG",
-    "doi": "10.20944/preprints202102.0215.v1",
-    "url": "http://dx.doi.org/10.20944/PREPRINTS202102.0215.V1",
-    "title": "Insect-Specific Flavivirus Replication in Mammalian Cells is Inhibited by Physiological Temperature and the Zinc-Finger Antiviral Protein",
     "ENTRYTYPE": "article",
     "ID": "Colmant_2021"
   },
