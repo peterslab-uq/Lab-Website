@@ -123,74 +123,74 @@ function initAlumniCarousel() {
 
     if (!alumniGrid || !prevBtn || !nextBtn) return;
 
-    const cardWidth = 280 + 30; // card width + gap
-    const duration = 600; // animation duration in ms
-    const cards = [...alumniGrid.querySelectorAll(".alumni_card")];
-    const totalCards = cards.length;
+    // Dynamically compute card width + gap from rendered size
+    const firstCard = alumniGrid.querySelector(".alumni_card");
+    const computedStyle = getComputedStyle(alumniGrid);
+    const gap = parseFloat(computedStyle.gap) || 30;
+    const cardWidth = (firstCard ? firstCard.offsetWidth : 280) + gap;
+    let isScrolling = false;
+    
+    // Get original cards
+    const originalCards = [...alumniGrid.querySelectorAll(".alumni_card")];
+    const totalCards = originalCards.length;
+    
+    // Clone 3 sets forward
+    for (let i = 0; i < 3; i++) {
+        originalCards.forEach(card => {
+            alumniGrid.appendChild(card.cloneNode(true));
+        });
+    }
+    
+    // Clone 3 sets backward
+    for (let i = 0; i < 3; i++) {
+        [...originalCards].reverse().forEach(card => {
+            alumniGrid.insertBefore(card.cloneNode(true), alumniGrid.firstChild);
+        });
+    }
+    
+    const setWidth = totalCards * cardWidth;
+    
+    // Disable CSS scroll-behavior so only our JS animation controls movement
+    alumniGrid.style.scrollBehavior = 'auto';
+    alumniGrid.scrollLeft = setWidth * 3;
 
-    // Clone cards for seamless infinite loop
-    // Add clones at the end (forward direction)
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        alumniGrid.appendChild(clone);
-    });
+    function smoothScrollBy(amount) {
+        if (isScrolling) return;
+        isScrolling = true;
 
-    // Add clones at the beginning (backward direction) in correct order
-    [...cards].reverse().forEach(card => {
-        const clone = card.cloneNode(true);
-        alumniGrid.insertBefore(clone, alumniGrid.firstChild);
-    });
-
-    // Start at the middle (original cards)
-    const originalStart = totalCards * cardWidth;
-    const originalEnd = originalStart + (totalCards * cardWidth);
-    alumniGrid.scrollLeft = originalStart;
-
-    function smoothScroll(element, scrollAmount, duration) {
-        const start = element.scrollLeft;
-        const target = start + scrollAmount;
-        const distance = scrollAmount;
+        const start = alumniGrid.scrollLeft;
+        const duration = 500;
         const startTime = performance.now();
 
-        function easeInOutQuad(t) {
-            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        function easeInOutCubic(t) {
+            return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
         }
 
-        function scroll(currentTime) {
+        function animate(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            const ease = easeInOutQuad(progress);
-            element.scrollLeft = start + distance * ease;
+            alumniGrid.scrollLeft = start + amount * easeInOutCubic(progress);
 
             if (progress < 1) {
-                requestAnimationFrame(scroll);
+                requestAnimationFrame(animate);
             } else {
-                // After animation completes, check if we need to reset position
-                checkAndResetPosition();
+                // Animation done — silently reposition if near edges
+                const pos = alumniGrid.scrollLeft;
+                const maxScroll = alumniGrid.scrollWidth - alumniGrid.clientWidth;
+                if (pos < setWidth * 1.5) {
+                    alumniGrid.scrollLeft = pos + setWidth * 2;
+                } else if (pos > maxScroll - setWidth * 1.5) {
+                    alumniGrid.scrollLeft = pos - setWidth * 2;
+                }
+                isScrolling = false;
             }
         }
 
-        requestAnimationFrame(scroll);
+        requestAnimationFrame(animate);
     }
 
-    function checkAndResetPosition() {
-        const currentScroll = alumniGrid.scrollLeft;
-        
-        // If we've scrolled past the forward clones, jump back to original start
-        if (currentScroll >= originalEnd) {
-            alumniGrid.scrollLeft = originalStart;
-        }
-        // If we've scrolled before the backward clones, jump back to original end
-        else if (currentScroll < originalStart - totalCards * cardWidth) {
-            alumniGrid.scrollLeft = originalEnd - cardWidth;
-        }
-    }
-
-    prevBtn.addEventListener("click", () => {
-        smoothScroll(alumniGrid, -cardWidth, duration);
-    });
-
-    nextBtn.addEventListener("click", () => {
-        smoothScroll(alumniGrid, cardWidth, duration);
-    });
+    prevBtn.addEventListener("click", () => smoothScrollBy(-cardWidth));
+    nextBtn.addEventListener("click", () => smoothScrollBy(cardWidth));
 }

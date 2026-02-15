@@ -397,6 +397,7 @@ body {
     margin-bottom: 15px;
 }
 
+/* About section responsive */
 @media (max-width: 768px) {
     .about_layout {
         grid-template-columns: 1fr;
@@ -412,14 +413,6 @@ body {
     
     .about_heading {
         font-size: 1.6rem;
-    }
-    
-    .research_grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .research_section_heading {
-        font-size: 1.8rem;
     }
 }
 
@@ -573,6 +566,7 @@ body {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .research_card {
@@ -673,6 +667,119 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Research Section - Responsive Styles */
+
+/* Large screens - ensure proper spacing */
+@media (min-width: 1400px) {
+    .research_grid {
+        max-width: 1400px;
+        gap: 40px;
+    }
+    
+    .research_section {
+        padding: 80px 60px;
+    }
+    
+    .research_section_heading {
+        font-size: 3rem;
+        margin-bottom: 60px;
+    }
+}
+
+/* Tablet View - 2 columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .research_grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px;
+        padding: 0 20px;
+    }
+    
+    .research_section {
+        padding: 50px 30px;
+    }
+    
+    .research_section_heading {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .research_card {
+        padding: 30px 25px;
+    }
+    
+    .research_card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile View - 1 column */
+@media (max-width: 768px) {
+    .research_grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .research_section {
+        padding: 40px 15px;
+    }
+    
+    .research_section_heading {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+    }
+    
+    .research_card {
+        padding: 30px 20px;
+    }
+    
+    .research_card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .research_card_intro {
+        font-size: 0.9rem;
+    }
+    
+    .research_card_body {
+        font-size: 0.85rem;
+    }
+    
+    .research_card_image {
+        margin-bottom: 15px;
+    }
+}
+
+/* Small Mobile View - Extra adjustments for very small screens */
+@media (max-width: 480px) {
+    .research_section {
+        padding: 30px 10px;
+    }
+    
+    .research_section_heading {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+    
+    .research_card {
+        padding: 25px 15px;
+    }
+    
+    .research_card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .research_card_intro {
+        font-size: 0.85rem;
+    }
+    
+    .research_card_body {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
 }
 
 
@@ -901,6 +1008,364 @@ body {
     color: var(--primary);
 }
 
+/* ===================== PI SECTION (Combined wrapper) ===================== */
+.pi-section {
+    position: relative;
+    width: 100%;
+    background-color: var(--background);
+    padding: 60px 20px 50px;
+    overflow: hidden;
+}
+
+.pi-section .about-bg-deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(87, 167, 115, 0.02) 0%,
+        rgba(79, 179, 162, 0.02) 100%
+    );
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+}
+
+.pi-section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.pi-divider {
+    text-align: center;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    opacity: 0.6;
+    position: relative;
+    z-index: 1;
+}
+
+.pi-divider-orange {
+    color: #F87060;
+}
+
+/* ===================== ABOUT SECTION (PI Profiles) ===================== */
+.about {
+    position: relative;
+    padding: 30px 0;
+    background-color: transparent;
+    margin-bottom: 0;
+    overflow: visible;
+}
+
+.about-bg-deco {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(87, 167, 115, 0.02) 0%,
+        rgba(79, 179, 162, 0.02) 100%
+    );
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+/* Reverse layout with same-size photo */
+.about-reverse .about-container {
+    grid-template-columns: 1fr 380px;
+}
+
+/* ===== Photo Column ===== */
+.about-photo-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.about-photo-border {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+    z-index: 0;
+}
+
+.about-photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: block;
+    z-index: 1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-dark {
+    background-color: var(--primary);
+    color: var(--background);
+    border-color: var(--primary);
+}
+
+.btn-dark:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cv {
+    width: 100%;
+}
+
+/* ===== Text Column ===== */
+.about-text {
+    padding-top: 10px;
+}
+
+.about-label {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.hash-separator {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 12px 0;
+    opacity: 0.7;
+}
+
+.about-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 15px 0 8px 0;
+    line-height: 1.2;
+}
+
+.about-title {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0 15px 0;
+}
+
+.about-title em {
+    font-style: italic;
+    color: #666;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.about-bold {
+    font-weight: 600;
+    color: #333;
+}
+
+.about-bottom-stripe {
+    display: none; /* replaced by .pi-divider in combined section */
+}
+
+/* Orange theme for Roy's section */
+.about-reverse .about-label {
+    color: #F87060;
+}
+
+.about-reverse .hash-separator {
+    color: #F87060;
+}
+
+.about-reverse .about-photo-border {
+    border-color: #F87060;
+}
+
+.about-reverse .about-bottom-stripe {
+    color: #F87060;
+}
+
+.about-reverse .about-bg-deco {
+    background: linear-gradient(
+        135deg,
+        rgba(248, 112, 96, 0.02) 0%,
+        rgba(255, 140, 100, 0.02) 100%
+    );
+}
+
+/* Scroll reveal animations */
+.scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.8s ease forwards 0.2s;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* About / PI Section - Responsive */
+@media (max-width: 1024px) {
+    .pi-section {
+        padding: 50px 20px 40px;
+    }
+
+    .about-container {
+        grid-template-columns: 320px 1fr;
+        gap: 40px;
+    }
+    
+    .about-reverse .about-container {
+        grid-template-columns: 1fr 320px;
+    }
+    
+    .about-name {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pi-section {
+        padding: 40px 15px 30px;
+    }
+
+    .pi-section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .about {
+        padding: 20px 0;
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-photo-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .about-name {
+        font-size: 1.7rem;
+    }
+    
+    .about-title {
+        font-size: 1rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .btn-cv {
+        width: 100%;
+    }
+
+    /* About (PI profiles) reverse layout stacks on mobile */
+    .about-reverse .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-reverse .about-photo-wrapper {
+        max-width: 280px;
+        margin: 0 auto;
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .pi-section {
+        padding: 30px 10px 20px;
+    }
+
+    .pi-section-title {
+        font-size: 1.5rem;
+    }
+
+    .about {
+        padding: 15px 0;
+    }
+    
+    .about-name {
+        font-size: 1.5rem;
+    }
+    
+    .about-title {
+        font-size: 0.95rem;
+    }
+    
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+}
+
+/* ===================== END ABOUT SECTION ===================== */
+
 /* Grid layout for team cards */
 .team_grid {
     display: grid;
@@ -1049,16 +1514,191 @@ body {
 /* Mobile tweaks */
 @media (max-width: 768px) {
     .team_section {
-        padding: 50px 16px;
+        padding: 40px 10px;
+    }
+
+    .team_section .section_title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
     .team_group_title {
         margin-top: 28px;
         margin-bottom: 12px;
+        font-size: 1.3rem;
+    }
+
+    .team_grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .team_card_wrapper {
+        max-width: 260px;
+        height: 340px;
     }
 
     .team_card {
         max-width: 320px;
+    }
+
+    .team_photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .team_name {
+        font-size: 1.05rem;
+    }
+
+    .team_role {
+        font-size: 0.85rem;
+    }
+
+    .team_card_back .team_bio {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    /* Alumni section */
+    .alumni_section {
+        padding: 40px 10px;
+    }
+
+    .alumni_section .section_title {
+        font-size: 1.8rem;
+    }
+
+    .alumni_section .section_subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+        padding: 0 10px;
+    }
+
+    .alumni_carousel_container {
+        gap: 8px;
+    }
+
+    .alumni_scroll_btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .alumni_card {
+        flex: 0 0 240px;
+        min-width: 240px;
+        width: 240px;
+        height: 200px;
+        padding: 12px 10px;
+    }
+
+    .alumni_card:has(.alumni_photo) {
+        padding-right: 85px;
+    }
+
+    .alumni_name {
+        font-size: 1rem;
+    }
+
+    .alumni_years {
+        font-size: 0.8rem;
+    }
+
+    .alumni_role {
+        font-size: 0.75rem;
+    }
+
+    .alumni_photo {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team_section {
+        padding: 30px 8px;
+    }
+
+    .team_section .section_title {
+        font-size: 1.5rem;
+    }
+
+    .team_group_title {
+        font-size: 1.15rem;
+        margin-top: 20px;
+    }
+
+    .team_grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .team_card_wrapper {
+        max-width: 100%;
+        height: 320px;
+    }
+
+    .team_photo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .team_name {
+        font-size: 1rem;
+    }
+
+    .team_role {
+        font-size: 0.8rem;
+    }
+
+    /* Alumni section - small mobile */
+    .alumni_section .section_title {
+        font-size: 1.5rem;
+    }
+
+    .alumni_section .section_subtitle {
+        font-size: 0.85rem;
+    }
+
+    .alumni_carousel_container {
+        gap: 5px;
+    }
+
+    .alumni_scroll_btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .alumni_card {
+        flex: 0 0 210px;
+        min-width: 210px;
+        width: 210px;
+        height: 190px;
+        padding: 10px 8px;
+    }
+
+    .alumni_card:has(.alumni_photo) {
+        padding-right: 75px;
+    }
+
+    .alumni_name {
+        font-size: 0.9rem;
+    }
+
+    .alumni_years {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+    }
+
+    .alumni_role {
+        font-size: 0.7rem;
+    }
+
+    .alumni_photo {
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -1832,8 +2472,6 @@ body {
     padding-bottom: 15px;
     margin: 0;
     flex: 1;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
 }
 
 .alumni_scroll_btn {
@@ -1849,11 +2487,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background-color 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .alumni_scroll_btn:hover {
     background-color: var(--primary);
+    transform: scale(1.1);
 }
 
 .alumni_scroll_prev {
@@ -1866,7 +2505,7 @@ body {
     border-radius: 12px;
     border-left: 4px solid var(--accent);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 0 0 280px;
     min-width: 280px;
     width: 280px;
@@ -1875,6 +2514,11 @@ body {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+}
+
+/* Add padding to prevent text overlap with image */
+.alumni_card:has(.alumni_photo) {
+    padding-right: 100px;
 }
 
 .alumni_card:hover {
@@ -1887,6 +2531,8 @@ body {
     font-size: 1.15rem;
     margin-bottom: 4px;
     font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .alumni_photo {
@@ -1913,9 +2559,11 @@ body {
     font-weight: 600;
     margin-bottom: 0;
     font-size: 0.8rem;
-    line-height: 1.2;
+    line-height: 1.3;
     padding-left: 10px;
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .alumni_role li {
@@ -1927,6 +2575,8 @@ body {
     font-size: 0.9rem;
     margin-bottom: 6px;
     font-style: italic;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .alumni_current {
