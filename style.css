@@ -1503,6 +1503,51 @@ body {
     margin-bottom: 8px;
 }
 
+/* Social links on team cards */
+.team_social_links {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.team_social_links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.team_social_links a:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-reverse .team_social_links a:hover {
+    background-color: #F87060;
+}
+
+/* Social links under PI photos */
+.about-photo-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-social-links {
+    justify-content: center;
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
 /* Bio text */
 .team_bio {
     font-size: 0.9rem;
