@@ -1638,15 +1638,13 @@ body {
     }
 
     .alumni_card {
-        flex: 0 0 240px;
-        min-width: 240px;
-        width: 240px;
-        height: 200px;
-        padding: 12px 10px;
-    }
-
-    .alumni_card:has(.alumni_photo) {
-        padding-right: 85px;
+        flex: 0 0 220px;
+        min-width: 220px;
+        width: 220px;
+        height: auto;
+        min-height: 280px;
+        max-height: 380px;
+        padding: 0 0 16px 0;
     }
 
     .alumni_name {
@@ -1664,6 +1662,7 @@ body {
     .alumni_photo {
         width: 75px;
         height: 75px;
+        margin: 16px auto 10px auto;
     }
 }
 
@@ -1724,15 +1723,13 @@ body {
     }
 
     .alumni_card {
-        flex: 0 0 210px;
-        min-width: 210px;
-        width: 210px;
-        height: 190px;
-        padding: 10px 8px;
-    }
-
-    .alumni_card:has(.alumni_photo) {
-        padding-right: 75px;
+        flex: 0 0 185px;
+        min-width: 185px;
+        width: 185px;
+        height: auto;
+        min-height: 260px;
+        max-height: 360px;
+        padding: 0 0 14px 0;
     }
 
     .alumni_name {
@@ -1749,8 +1746,9 @@ body {
     }
 
     .alumni_photo {
-        width: 60px;
-        height: 60px;
+        width: 62px;
+        height: 62px;
+        margin: 14px auto 8px auto;
     }
 }
 
@@ -2559,12 +2557,12 @@ body {
     border-top: 5px solid var(--accent);
     box-shadow: 0 4px 18px rgba(31, 58, 95, 0.10);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    flex: 0 0 240px;
-    min-width: 240px;
-    width: 240px;
+    flex: 0 0 clamp(200px, 18vw, 260px);
+    min-width: clamp(200px, 18vw, 260px);
+    width: clamp(200px, 18vw, 260px);
     height: auto;
     min-height: 300px;
-    max-height: 380px;
+    max-height: 400px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
