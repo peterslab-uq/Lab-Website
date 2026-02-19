@@ -793,7 +793,7 @@ body {
 .isvac_layout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    min-height: 500px;
+    min-height: 560px;
 }
 
 .isvac_text_side {
@@ -842,8 +842,9 @@ body {
 
 .isvac_image_side iframe {
     width: 100%;
-    max-width: 560px;
+    max-width: 480px;
     aspect-ratio: 16 / 9;
+    height: auto;
     border-radius: 8px;
     position: relative;
     z-index: 2;
@@ -858,9 +859,14 @@ body {
     padding: 0 20px 60px;
 }
 
+.isvac_img_wrapper {
+    text-align: center;
+    margin: 20px 0;
+}
+
 .isvac_img {
-    max-width: 100%;
-    width: 100%;
+    max-width: 55%;
+    height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
