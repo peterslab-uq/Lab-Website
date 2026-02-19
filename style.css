@@ -631,8 +631,8 @@ body {
 
 .research_card_image {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
     border: none;
