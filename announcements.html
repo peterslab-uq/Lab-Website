@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Announcements | Peters Molecular Arbovirology Laboratory</title>
+    <meta name="description" content="Latest news, announcements, and updates from the Peters Molecular Arbovirology Laboratory at The University of Queensland.">
+    <meta name="keywords" content="Peters Lab, News, Announcements, Arbovirology, University of Queensland, Research Updates">
+    <meta name="author" content="Peters Molecular Arbovirology Laboratory">
+    <link rel="canonical" href="https://peterslab-uq.github.io/Lab-Website/announcements.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peterslab-uq.github.io/Lab-Website/announcements.html">
+    <meta property="og:title" content="News & Announcements | Peters Molecular Arbovirology Laboratory">
+    <meta property="og:description" content="Latest news, announcements, and updates from the Peters Molecular Arbovirology Laboratory at The University of Queensland.">
+    <meta property="og:image" content="https://peterslab-uq.github.io/Lab-Website/Images/Jody.jpg">
+    <meta property="og:site_name" content="Peters Molecular Arbovirology Laboratory">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@PetersLabUQ">
+    <meta name="twitter:title" content="News & Announcements | Peters Molecular Arbovirology Laboratory">
+    <meta name="twitter:description" content="Latest news, announcements, and updates from the Peters Molecular Arbovirology Laboratory at The University of Queensland.">
+    <meta name="twitter:image" content="https://peterslab-uq.github.io/Lab-Website/Images/Jody.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchOrganization",
+        "name": "Peters Molecular Arbovirology Laboratory",
+        "url": "https://peterslab-uq.github.io/Lab-Website/",
+        "description": "Research group at The University of Queensland specialising in molecular arbovirology, mosquito-borne virus discovery, and development of vaccines and diagnostics.",
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "The University of Queensland"
+        }
+    }
+    </script>
+
+    <style>
+        /* ── Announcements Page Styles ── */
+        .announcements_hero {
+            background: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+            padding: 80px 20px 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .announcements_hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .announcements_hero p {
+            font-size: 1.15rem;
+            opacity: 0.88;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .announcements_section {
+            padding: 60px 20px;
+            background-color: var(--background);
+        }
+
+        .announcements_container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Filter bar */
+        .announcements_filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+            justify-content: center;
+        }
+
+        .filter_btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter_btn:hover,
+        .filter_btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Individual announcement card */
+        .announcement_card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 3px 14px rgba(31, 58, 95, 0.09);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--accent);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .announcement_card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(31, 58, 95, 0.15);
+        }
+
+        .announcement_card.news     { border-left-color: #0091AD; }
+        .announcement_card.grant    { border-left-color: #57A773; }
+        .announcement_card.award    { border-left-color: #D138BF; }
+        .announcement_card.paper    { border-left-color: #9684A1; }
+        .announcement_card.event    { border-left-color: #F4A261; }
+
+        .announcement_meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .announcement_tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 12px;
+            border-radius: 999px;
+            color: white;
+        }
+
+        .tag-news   { background: #0091AD; }
+        .tag-grant  { background: #57A773; }
+        .tag-award  { background: #D138BF; }
+        .tag-paper  { background: #9684A1; }
+        .tag-event  { background: #F4A261; }
+
+        .announcement_date {
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .announcement_card h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .announcement_card p {
+            color: var(--text);
+            font-size: 0.97rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .announcement_link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 4px;
+            transition: color 0.2s;
+        }
+
+        .announcement_link:hover {
+            color: var(--primary);
+        }
+
+        .no_announcements {
+            text-align: center;
+            color: #aaa;
+            font-size: 1.05rem;
+            padding: 40px 0;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .announcements_hero h1 { font-size: 2rem; }
+            .announcement_card { padding: 20px 18px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-decoration: none;">Peters Molecular Arbovirology Laboratory</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="index.html#about" class="nav-item">About</a></li>
+            <li><a href="team.html" class="nav-item">People</a></li>
+            <li><a href="publications.html" class="nav-item">Publications</a></li>
+            <li><a href="announcements.html" class="nav-item">News</a></li>
+            <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="announcements_hero">
+        <h1>News &amp; Announcements</h1>
+        <p>Stay up to date with the latest news, publications, awards, and events from the Peters Lab.</p>
+    </div>
+
+    <!-- Announcements Section -->
+    <section class="announcements_section">
+        <div class="announcements_container">
+
+            <!-- Filter Buttons -->
+            <div class="announcements_filter">
+                <button class="filter_btn active" data-filter="all">All</button>
+                <button class="filter_btn" data-filter="news">News</button>
+                <button class="filter_btn" data-filter="paper">New Paper</button>
+                <button class="filter_btn" data-filter="grant">Grant</button>
+                <button class="filter_btn" data-filter="award">Award</button>
+                <button class="filter_btn" data-filter="event">Event</button>
+            </div>
+
+            <!-- Announcement Cards -->
+            <div id="announcementsList">
+
+                <div class="announcement_card news" data-category="news">
+                    <div class="announcement_meta">
+                        <span class="announcement_tag tag-news">News</span>
+                        <span class="announcement_date">February 2026</span>
+                    </div>
+                    <h3>Peters Lab website launched</h3>
+                    <p>We are excited to launch the new Peters Molecular Arbovirology Laboratory website. Explore our research, meet the team, and browse our publications.</p>
+                </div>
+
+                <div class="announcement_card paper" data-category="paper">
+                    <div class="announcement_meta">
+                        <span class="announcement_tag tag-paper">New Paper</span>
+                        <span class="announcement_date">2025</span>
+                    </div>
+                    <h3>New publication from the Peters Lab</h3>
+                    <p>Check out our latest research findings on the Publications page.</p>
+                    <a href="publications.html" class="announcement_link">View Publications <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <p class="no_announcements" id="noResults">No announcements found for this category.</p>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_section footer_brand">
+                <h3 class="footer_title">Peters | Molecular Arbovirology Laboratory</h3>
+            </div>
+            <div class="footer_section">
+                <h4>Quick Links</h4>
+                <ul class="footer_links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="team.html">People</a></li>
+                    <li><a href="index.html#publications">Featured Publications</a></li>
+                    <li><a href="publications.html">All Publications</a></li>
+                    <li><a href="announcements.html">News</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer_section">
+                <h4>Contact</h4>
+                <div class="footer_socials">
+                    <a href="mailto:peterslabwebsite@gmail.com" class="social_icon">Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            © 2026 Hobson-Peters Research Lab. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Filter announcements by category
+        const filterBtns = document.querySelectorAll('.filter_btn');
+        const cards = document.querySelectorAll('.announcement_card');
+        const noResults = document.getElementById('noResults');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                let visible = 0;
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                        visible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                noResults.style.display = visible === 0 ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -193,4 +193,18 @@ function initAlumniCarousel() {
 
     prevBtn.addEventListener("click", () => smoothScrollBy(-cardWidth));
     nextBtn.addEventListener("click", () => smoothScrollBy(cardWidth));
+
+    // Auto-scroll every 3.5 seconds, pause on hover
+    let autoScrollInterval = setInterval(() => smoothScrollBy(cardWidth), 3500);
+
+    alumniGrid.addEventListener("mouseenter", () => clearInterval(autoScrollInterval));
+    alumniGrid.addEventListener("mouseleave", () => {
+        autoScrollInterval = setInterval(() => smoothScrollBy(cardWidth), 3500);
+    });
+
+    // Also pause on touch (mobile)
+    alumniGrid.addEventListener("touchstart", () => clearInterval(autoScrollInterval));
+    alumniGrid.addEventListener("touchend", () => {
+        autoScrollInterval = setInterval(() => smoothScrollBy(cardWidth), 3500);
+    });
 }

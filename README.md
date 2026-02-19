@@ -1,240 +1,256 @@
-# Peters Lab Website
+# Peters Molecular Arbovirology Laboratory — Website
 
-A professional research laboratory website for The Peters Molecular Arbovirology Laboratory at The University of Queensland.
+Official website for the Peters Molecular Arbovirology Laboratory at The University of Queensland, Australia.
 
-## Project Overview
+🌐 **Live Site:** [https://peterslab-uq.github.io/Lab-Website/](https://peterslab-uq.github.io/Lab-Website/)
 
-This website showcases the research, team, and publications of the Peters Molecular Arbovirology Lab. It features an interactive design with team member cards, multimedia content, and a comprehensive publication system.
+---
 
-## Website Structure
+## Pages
 
-### Main Pages
+| File | Description |
+|---|---|
+| `index.html` | Homepage — hero, about, research areas, ISVac, Mozzy mAbs, featured publications, contact |
+| `team.html` | Team members (flip cards) and alumni carousel |
+| `publications.html` | Searchable full publications database |
+| `announcements.html` | News & Announcements page with category filters |
 
-- **index.html** - Homepage with hero section, about, research areas, ISVac platform, and Mozzie mAbs sections
-- **team.html** - Dedicated team page with all lab members organized by role and an alumni section
-- **publications.html** - Complete searchable publication database with year-based filtering
-- **style.css** - Comprehensive styling with responsive design
-- **script.js** - JavaScript for interactivity (flip animations, navigation, etc.)
+---
 
 ## Features
 
-### 1. **Responsive Navigation**
-- Sticky navbar with lab name and menu
-- Hamburger menu for mobile devices
-- Links to all major sections and pages
+- **Responsive navigation** — hamburger menu on mobile, active-link highlighting
+- **Hero section** — full-screen banner with lab branding
+- **About & Research Areas** — overview cards with section-specific accent colours
+- **ISVac & Mozzy mAbs** — dedicated product/project sections
+- **Team flip cards** — front photo/name/role, back bio (scrollable)
+- **Alumni carousel** — auto-scrolls every 3.5 s; pauses on hover/touch; prev/next buttons
+- **Publications** — BibTeX → JSON pipeline, search + filter, featured section on homepage
+- **News & Announcements** — filterable cards by category (All / News / New Paper / Grant / Award / Event)
+- **Contact form** — powered by FormSubmit, sends to peterslabwebsite@gmail.com
+- **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap.xml, robots.txt
 
-### 2. **Hero Section**
-- Background image with overlay gradient
-- Welcome message and call-to-action button
+---
 
-### 3. **About Section**
-- Lab description and mission
-- Embedded YouTube video
+## Colour Palette
 
-### 4. **Research Areas**
-- 3-column responsive grid layout
-- Arbovirus Discovery, Diagnostics, and Vaccines cards
-- LFA.png image above Arbovirus Discovery and Diagnostics cards
-- Flavi.jpg image (50% width) above Vaccines card
-- Centered headings and descriptions
-- No background cards for minimal design
+| Variable | Hex | Usage |
+|---|---|---|
+| `--primary` | `#1F3A5F` | Navy — navbar, headings, footer |
+| `--secondary` | `#4A6FA5` | Steel blue — secondary text, borders |
+| `--accent` | `#4FB3A2` | Teal — highlights, buttons, card borders |
+| `--background` | `#F7F9FC` | Off-white — page background |
+| `--text` | `#1E1E1E` | Near-black — body text |
 
-### 5. **ISVac Platform**
-- Text description with embedded YouTube video
-- Featured image below content
-- Centered layout for multimedia
+Section accent colours (Research Areas, announcement tags, etc.) are declared inline and include Oxford Navy, Pacific Cyan, Jungle Green, Dusty Mauve, and Vivid Orchid.
 
-### 6. **Mozzie mAbs Section**
-- Image on the left with product information on the right
-- Purchase button centered at the bottom
-- Links to external shop
+---
 
-### 7. **Team Section** (`team.html`)
-- **Organized by role:**
-  - Principal Investigators
-  - Postdoctoral Researchers
-  - PhD Students
-  - Research Assistants
-  - Undergraduate Students
+## Technologies
 
-- **Interactive flip cards:**
-  - Front: Member photo, name, and role
-  - Back: Bio with scrollable text for longer content
-  - 3D flip animation on click
+- **HTML5 / CSS3** — semantic markup, CSS custom properties, Flexbox, Grid, media queries, 3-D flip transforms
+- **JavaScript (vanilla)** — scroll-reveal, card flips, hamburger menu, gallery slider, alumni auto-scroll, announcement filters
+- **Font Awesome** — icons
+- **Academicons** — academic/research icons
+- **FormSubmit** — contact form backend (no server required)
+- **Python** (`convert.py`) — BibTeX → JSON publication pipeline
 
-### 8. **Alumni Section** (`team.html`)
-- Grid layout for past lab members
-- Displays: Name, previous role, years in lab, current position
-- Hover effects with elevation animation
+---
 
-### 9. **Publications System**
-- **Featured Publications** (index.html): Top 3 most recent
-- **All Publications** (publications.html): Complete database with:
-  - Year-based grouping with collapsible sections
-  - Search functionality (title, author, year)
-  - Publication cards with metadata
-  - DOI links
+## How to Update the News Section
 
-### 10. **Contact Section**
-- Contact form with spam protection (CAPTCHA)
-- FormSubmit integration for email delivery
-- Lab contact information
+The News & Announcements page lives in `announcements.html`.
+Each announcement is a single `<div class="announcement_card">` block inside the `<div class="announcements_grid">` container.
 
-### 11. **Footer**
-- Quick navigation links
-- Contact email
-- Copyright information
+### Step-by-step: Adding a New Announcement
 
-## Color Palette
+1. Open `announcements.html` in a text editor.
 
-- **Primary**: `#1F3A5F` (Dark Blue) - Main text and headings
-- **Secondary**: `#4A6FA5` (Medium Blue) - Accents and hover states
-- **Accent**: `#4FB3A2` (Teal) - Highlights and CTAs
-- **Background**: `#F7F9FC` (Light Blue) - Section backgrounds
-- **Text**: `#1E1E1E` (Dark) - Body text
+2. Find the `<div class="announcements_grid">` section (search for `announcements_grid`).
 
-## Technologies Used
+3. Copy an existing card block. A card looks like this:
 
-- **HTML5** - Semantic markup
-- **CSS3** - Styling with custom properties and animations
-  - 3D transforms for flip cards
-  - Flexbox and CSS Grid layouts
-  - Responsive design with media queries
-- **JavaScript** - Interactivity
-  - Scroll reveal animations
-  - Card flip functionality
-  - Hamburger menu toggle
-  - Gallery slider
-- **FormSubmit API** - Contact form backend
-
-## Publication Management
-
-### Adding Publications
-
-1. Edit `references.bib` with BibTeX entries
-2. Run `python convert.py` to generate `references.json`
-3. Publications automatically appear on:
-   - Featured Publications section (3 most recent)
-   - All Publications page with search functionality
-
-### Example BibTeX Entry
-
-```bibtex
-@article{AuthorYear,
-  title={Article Title},
-  author={Author Name},
-  journal={Journal Name},
-  year={2024},
-  volume={10},
-  pages={1--15},
-  doi={10.xxxx/xxxxx}
-}
+```html
+<div class="announcement_card" data-category="news">
+    <div class="announcement_tag tag_news">News</div>
+    <div class="announcement_date">January 2026</div>
+    <h3 class="announcement_title">Your Headline Here</h3>
+    <p class="announcement_desc">
+        A short description of the announcement goes here. Keep it to 1–3 sentences.
+    </p>
+</div>
 ```
 
-## Team Management
+4. Paste the copied block **above** any existing cards (newest first).
 
-### Adding Team Members
+5. Update the following fields:
 
-Edit `team.html` and add new cards in the appropriate section:
+| Field | What to change |
+|---|---|
+| `data-category="..."` | Category keyword — see table below |
+| `class="announcement_tag tag_..."` | Matching tag class — see table below |
+| Tag text (e.g. `News`) | Display label shown on the card |
+| `announcement_date` | Month and year, e.g. `June 2025` |
+| `announcement_title` | Headline text |
+| `announcement_desc` | 1–3 sentence description |
+
+### Category Reference
+
+| Category | `data-category` value | Tag class | Tag colour |
+|---|---|---|---|
+| General news | `news` | `tag_news` | Blue |
+| New publication | `paper` | `tag_paper` | Green |
+| Grant awarded | `grant` | `tag_grant` | Purple |
+| Award / prize | `award` | `tag_award` | Gold |
+| Event / conference | `event` | `tag_event` | Orange |
+
+### Example: Adding a New Paper Announcement
+
+```html
+<div class="announcement_card" data-category="paper">
+    <div class="announcement_tag tag_paper">New Paper</div>
+    <div class="announcement_date">May 2026</div>
+    <h3 class="announcement_title">New study published in PLOS Pathogens</h3>
+    <p class="announcement_desc">
+        Our latest research on flavivirus NS1 protein was published in PLOS Pathogens.
+        Read the full article on the Publications page.
+    </p>
+</div>
+```
+
+6. Save the file.
+
+7. Push to GitHub (see Deployment below) — the live site updates automatically.
+
+### Editing or Removing an Announcement
+
+- **Edit** — find the card by its title and update the relevant fields.
+- **Remove** — delete the entire `<div class="announcement_card"> … </div>` block.
+
+---
+
+## How to Update Team Members
+
+### Adding a Current Team Member
+
+Edit `team.html` and add a new flip card inside the appropriate `team_grid` section:
 
 ```html
 <div class="team_card_wrapper">
     <div class="team_card">
         <div class="team_card_front">
-            <img src="Images/photo.jpg" alt="Name" class="team_photo">
+            <img src="Images/photo.jpg" alt="Full Name" class="team_photo">
             <h3 class="team_name">Full Name</h3>
             <p class="team_role">Role Title</p>
         </div>
         <div class="team_card_back">
-            <p class="team_bio">Bio text here...</p>
+            <p class="team_bio">Short bio text here.</p>
         </div>
     </div>
 </div>
 ```
 
-### Adding Alumni
+Place the member photo (square crop recommended, JPG/PNG) in the `Images/` folder.
+If no photo is available, use `Images/Placeholder.png`.
 
-Edit the alumni grid in `team.html`:
+### Adding an Alumni Member
+
+Edit the alumni grid in `team.html` and add a card inside `<div id="alumniGrid">`:
 
 ```html
 <div class="alumni_card">
+    <img src="Images/photo.jpg" alt="Alumni Name" class="alumni_photo">
     <h3 class="alumni_name">Alumni Name</h3>
-    <p class="alumni_role">Previous Role</p>
-    <p class="alumni_years">2020-2023</p>
-    <p class="alumni_current">Current Position at Institution</p>
+    <p class="alumni_years">2022–2024 (PhD Student)</p>
+    <ul class="alumni_role"><li>Current Position, Institution</li></ul>
 </div>
 ```
 
-## Responsive Design
-
-The website is fully responsive with breakpoints for:
-- Mobile (< 768px)
-- Tablet (768px - 1024px)
-- Desktop (> 1024px)
-
-Key responsive features:
-- Hamburger menu on mobile
-- Flexible grid layouts
-- Adjusted font sizes and spacing
-- Touch-friendly interactive elements
-
-## Team Card Features
-
-### Front (Display)
-- Member photo (120px circular)
-- Name and role
-- Hover effect with elevation
-
-### Back (Bio)
-- Scrollable bio text for longer content
-- Custom webkit scrollbar styling
-- Semi-transparent white background
-
-## File Structure
-
-```
-Lab Website/
-├── index.html           # Main homepage
-├── team.html            # Team and alumni page
-├── publications.html    # Full publications database
-├── style.css            # All styling
-├── script.js            # JavaScript functionality
-├── references.bib       # BibTeX publication database
-├── references.json      # Converted publication database
-├── convert.py           # BibTeX to JSON converter
-├── test_bib.py          # BibTeX testing utility
-└── Images/              # All images and photos
-```
-
-## Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Future Enhancements
-
-Potential features to add:
-- Blog/news section
-- Research gallery/photo albums
-- Event calendar
-- Lab resources/protocols
-- Equipment inventory
-- Collaboration opportunities
-- Newsletter signup
-- Dark mode toggle
-
-## Contact & Support
-
-For questions about the website content, contact the lab directly through the contact form.
-
-For technical issues or contributions, refer to the repository maintainer.
-
-## License
-
-© 2026 Hobson-Peters Research Lab. All Rights Reserved.
+If no photo is available, use `src="Images/Placeholder.png"`.
 
 ---
 
-*Last Updated: February 12, 2026*
+## Publication Management
+
+### Adding Publications
+
+1. Edit `references.bib` with the new BibTeX entry:
+
+```bibtex
+@article{AuthorYear,
+  title   = {Article Title},
+  author  = {Author Name},
+  journal = {Journal Name},
+  year    = {2025},
+  volume  = {10},
+  pages   = {1--15},
+  doi     = {10.xxxx/xxxxx}
+}
+```
+
+2. Run the converter:
+
+```bash
+python convert.py
+```
+
+3. This updates `references.json` — publications appear automatically on the Publications page and in the Featured Publications section on the homepage.
+
+---
+
+## Deployment
+
+The site is hosted on **GitHub Pages** from the `main` branch of the `peterslab-uq/Lab-Website` repository.
+
+### Pushing changes
+
+```bash
+cd "/path/to/Lab Website"
+git add .
+git commit -m "Brief description of changes"
+git push origin main
+```
+
+GitHub Pages rebuilds the site within ~1 minute of each push.
+
+---
+
+```
+Lab Website/
+├── index.html           # Homepage
+├── team.html            # Team & alumni page
+├── publications.html    # Full publications database
+├── announcements.html   # News & announcements page
+├── style.css            # All styles
+├── script.js            # All JavaScript
+├── sitemap.xml          # Search engine sitemap
+├── robots.txt           # Search engine crawl rules
+├── references.bib       # BibTeX publication database
+├── references.json      # Converted publication database (auto-generated)
+├── convert.py           # BibTeX → JSON converter
+├── test_bib.py          # BibTeX testing utility
+└── Images/              # Photos and image assets
+    └── Placeholder.png  # Default photo for members without a photo
+```
+
+---
+
+## Browser Support
+
+- Chrome / Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- iOS Safari, Chrome Mobile
+
+---
+
+## Contact & Support
+
+For content questions, use the contact form on the website.
+For technical issues, contact the repository maintainer.
+
+---
+
+© 2026 Peters Molecular Arbovirology Laboratory. All Rights Reserved.
+
+*Last Updated: June 2026*

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peterslab-uq.github.io/Lab-Website/sitemap.xml
