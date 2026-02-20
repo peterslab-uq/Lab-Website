@@ -1,4 +1,4 @@
-# Peters Molecular Arbovirology Laboratory — Website
+aaaaaa# Peters Molecular Arbovirology Laboratory — Website
 
 Official website for the Peters Molecular Arbovirology Laboratory at The University of Queensland, Australia.
 
@@ -10,14 +10,18 @@ Official website for the Peters Molecular Arbovirology Laboratory at The Univers
 
 This guide is written for anyone with no prior coding experience. Follow each step in order.
 
-### Step 1 — Create a GitHub Account
+### Step 1 — GitHub Account
 
-GitHub is the service that hosts the website files and publishes them online.
+GitHub is the service that hosts the website files and publishes them online. You have two options:
 
+**Option A — Log in to the shared lab account (simplest)**
+Ask a current lab member for the credentials to the `peterslab-uq` GitHub account and log in at [https://github.com](https://github.com). You will have full access to the repository straight away with no extra setup needed.
+
+**Option B — Create your own GitHub account**
 1. Go to [https://github.com](https://github.com) and click **Sign up**
 2. Enter your email address, create a password, and choose a username
 3. Verify your email address when prompted
-4. Once signed in, ask the repository owner (`peterslab-uq`) to add you as a **collaborator**:
+4. Ask the repository owner (`peterslab-uq`) to add you as a **collaborator**:
    - They go to the repository → **Settings** → **Collaborators** → **Add people** → type your GitHub username
 5. You will receive an email invitation — click **Accept invitation**
 
@@ -36,12 +40,38 @@ Visual Studio Code (VS Code) is the program you use to open and edit the website
 
 Git is the tool that sends your changes to the live website on GitHub.
 
-**Mac:**
+**Mac — using Homebrew (recommended):**
+
+Homebrew is a package manager for Mac that makes installing developer tools simple. If you don't have it yet:
+
 1. Open the **Terminal** app (search for it in Spotlight with Cmd + Space)
+2. Paste the following command and press Enter — it will install Homebrew automatically:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+3. Follow the prompts on screen (you may need to enter your Mac password)
+4. Once Homebrew is installed, install Git by running:
+```bash
+brew install git
+```
+
+**Mac — quick alternative (no Homebrew):**
+1. Open the **Terminal** app
 2. Type `git --version` and press Enter
 3. If Git is not installed, a prompt will appear asking you to install it — click **Install** and follow the steps
 
-**Windows:**
+**Windows — using winget (recommended):**
+
+Winget is a built-in package manager on Windows 10/11. No download needed.
+
+1. Open **Command Prompt** or **PowerShell** (search for either in the Start Menu)
+2. Run this command:
+```bash
+winget install --id Git.Git -e --source winget
+```
+3. Follow the installer prompts — accept all default settings
+
+**Windows — manual install:**
 1. Go to [https://git-scm.com/download/win](https://git-scm.com/download/win)
 2. Download and run the installer — accept all default settings
 
