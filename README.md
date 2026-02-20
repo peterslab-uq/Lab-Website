@@ -122,6 +122,24 @@ git push
 
 If it's your first time pushing, Git may ask you to log in to GitHub. Follow the prompts in the browser window that opens.
 
+### Pulling — getting the latest changes from GitHub
+
+If someone else has edited the website, you need to **pull** their changes down to your computer before you start editing. If you skip this step and both edit at the same time, you may get a conflict.
+
+**VS Code interface:**
+1. Click the **Source Control** icon in the left sidebar
+2. Click the **...** (three dots) menu at the top of the panel
+3. Select **Pull**
+
+**Terminal:**
+```bash
+git pull
+```
+
+- `git pull` — downloads the latest version of the site from GitHub and updates your local files
+
+> ⚠️ **Always pull before you start editing**, especially if someone else may have made changes since you last worked on the site.
+
 ---
 
 ## Pages
