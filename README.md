@@ -6,6 +6,89 @@ Official website for the Peters Molecular Arbovirology Laboratory at The Univers
 
 ---
 
+## Getting Started — Setting Up Your Computer
+
+This guide is written for anyone with no prior coding experience. Follow each step in order.
+
+### Step 1 — Install Visual Studio Code
+
+Visual Studio Code (VS Code) is the program you use to open and edit the website files.
+
+1. Go to [https://code.visualstudio.com](https://code.visualstudio.com)
+2. Click the large **Download** button — it will automatically detect your operating system (Windows or Mac)
+3. Open the downloaded file and follow the installer prompts
+4. Once installed, open **Visual Studio Code** from your Applications folder (Mac) or Start Menu (Windows)
+
+### Step 2 — Install Git
+
+Git is the tool that sends your changes to the live website on GitHub.
+
+**Mac:**
+1. Open the **Terminal** app (search for it in Spotlight with Cmd + Space)
+2. Type `git --version` and press Enter
+3. If Git is not installed, a prompt will appear asking you to install it — click **Install** and follow the steps
+
+**Windows:**
+1. Go to [https://git-scm.com/download/win](https://git-scm.com/download/win)
+2. Download and run the installer — accept all default settings
+
+### Step 3 — Download the Website Files
+
+1. Open **Visual Studio Code**
+2. Press `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac) to open the Command Palette
+3. Type `Git: Clone` and press Enter
+4. Paste this URL: `https://github.com/peterslab-uq/Lab-Website.git`
+5. Choose a folder on your computer to save the files (e.g. your Desktop)
+6. Click **Open** when VS Code asks if you want to open the cloned repository
+
+You will now see all the website files listed in the left-hand panel.
+
+### Step 4 — Install the Live Preview Extension (recommended)
+
+This lets you see changes in real time without opening a browser manually.
+
+1. In VS Code, click the **Extensions** icon in the left sidebar (it looks like four squares)
+2. Search for `Live Preview`
+3. Click **Install** on the extension by Microsoft
+4. To use it: right-click `index.html` in the file panel and select **Show Preview**
+
+---
+
+## How to Edit the Website
+
+### Opening a file
+
+In the left-hand file panel in VS Code, click on any file to open it. The main files you will edit are:
+
+| File | What it controls |
+|---|---|
+| `index.html` | Homepage content |
+| `team.html` | Team members and alumni |
+| `publications.html` | Publications page |
+| `announcements.html` | News & announcements |
+| `style.css` | All colours, fonts, and layout |
+
+### Making a change
+
+1. Click the file you want to edit in the left panel
+2. Find the section you want to change — use **Ctrl+F** (Windows) or **Cmd+F** (Mac) to search for text
+3. Make your edit
+4. Save the file with **Ctrl+S** (Windows) or **Cmd+S** (Mac)
+
+### Publishing your changes to the live site
+
+After saving your edits, you need to push them to GitHub for the live site to update.
+
+1. In VS Code, click the **Source Control** icon in the left sidebar (it looks like a branching diagram)
+2. You will see a list of files you have changed
+3. Hover over **Changes** and click the **+** icon to stage all changes
+4. In the **Message** box at the top, type a short description of what you changed (e.g. `Update team bio`)
+5. Click the **Commit** button (the tick/checkmark)
+6. Click the **Sync Changes** button that appears (it has arrows) — this pushes to GitHub
+7. The live site will update within **1–2 minutes**
+
+---
+
 ## Pages
 
 | File | Description |
