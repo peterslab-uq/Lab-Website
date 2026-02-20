@@ -10,7 +10,20 @@ Official website for the Peters Molecular Arbovirology Laboratory at The Univers
 
 This guide is written for anyone with no prior coding experience. Follow each step in order.
 
-### Step 1 — Install Visual Studio Code
+### Step 1 — Create a GitHub Account
+
+GitHub is the service that hosts the website files and publishes them online.
+
+1. Go to [https://github.com](https://github.com) and click **Sign up**
+2. Enter your email address, create a password, and choose a username
+3. Verify your email address when prompted
+4. Once signed in, ask the repository owner (`peterslab-uq`) to add you as a **collaborator**:
+   - They go to the repository → **Settings** → **Collaborators** → **Add people** → type your GitHub username
+5. You will receive an email invitation — click **Accept invitation**
+
+You now have permission to push changes to the live site.
+
+### Step 2 — Install Visual Studio Code
 
 Visual Studio Code (VS Code) is the program you use to open and edit the website files.
 
@@ -19,7 +32,7 @@ Visual Studio Code (VS Code) is the program you use to open and edit the website
 3. Open the downloaded file and follow the installer prompts
 4. Once installed, open **Visual Studio Code** from your Applications folder (Mac) or Start Menu (Windows)
 
-### Step 2 — Install Git
+### Step 3 — Install Git
 
 Git is the tool that sends your changes to the live website on GitHub.
 
@@ -32,7 +45,14 @@ Git is the tool that sends your changes to the live website on GitHub.
 1. Go to [https://git-scm.com/download/win](https://git-scm.com/download/win)
 2. Download and run the installer — accept all default settings
 
-### Step 3 — Download the Website Files
+After installing Git, tell it your name and email (this is recorded with every change you make). Open a Terminal (Mac) or **Git Bash** (Windows, installed with Git) and run:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+### Step 4 — Download the Website Files
 
 1. Open **Visual Studio Code**
 2. Press `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac) to open the Command Palette
@@ -43,7 +63,7 @@ Git is the tool that sends your changes to the live website on GitHub.
 
 You will now see all the website files listed in the left-hand panel.
 
-### Step 4 — Install the Live Preview Extension (recommended)
+### Step 5 — Install the Live Preview Extension (recommended)
 
 This lets you see changes in real time without opening a browser manually.
 
@@ -75,9 +95,7 @@ In the left-hand file panel in VS Code, click on any file to open it. The main f
 3. Make your edit
 4. Save the file with **Ctrl+S** (Windows) or **Cmd+S** (Mac)
 
-### Publishing your changes to the live site
-
-After saving your edits, you need to push them to GitHub for the live site to update.
+### Publishing changes — Option A: VS Code interface (easiest)
 
 1. In VS Code, click the **Source Control** icon in the left sidebar (it looks like a branching diagram)
 2. You will see a list of files you have changed
@@ -86,6 +104,23 @@ After saving your edits, you need to push them to GitHub for the live site to up
 5. Click the **Commit** button (the tick/checkmark)
 6. Click the **Sync Changes** button that appears (it has arrows) — this pushes to GitHub
 7. The live site will update within **1–2 minutes**
+
+### Publishing changes — Option B: Terminal (faster once familiar)
+
+1. Open the Terminal in VS Code by going to **Terminal → New Terminal** in the top menu bar
+2. Run the following three commands one at a time, pressing Enter after each:
+
+```bash
+git add .
+git commit -m "Brief description of your changes"
+git push
+```
+
+- `git add .` — stages all changed files
+- `git commit -m "..."` — saves a snapshot with your message
+- `git push` — sends the changes to GitHub and updates the live site
+
+If it's your first time pushing, Git may ask you to log in to GitHub. Follow the prompts in the browser window that opens.
 
 ---
 
