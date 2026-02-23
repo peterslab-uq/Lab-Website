@@ -129,6 +129,32 @@
                     '<p style="color: var(--text);">Error loading publications. Please ensure references.json exists.</p>';
             });
 
+        function formatAuthors(authorStr) {
+            if (!authorStr) return 'Unknown';
+            const authors = authorStr.split(' and ').map(a => a.trim());
+            return authors.map(a => {
+                const parts = a.split(',').map(p => p.trim());
+                if (parts.length < 2) {
+                    // No comma format (e.g. "Jody Hobson-Peters")
+                    return highlightPIs(a, a);
+                }
+                const lastName = parts[0];
+                const firstNames = parts[1].split(/\s+/);
+                const initials = firstNames.map(n => n.charAt(0).toUpperCase()).join('');
+                return highlightPIs(`${lastName} ${initials}`, a);
+            }).join(', ');
+        }
+
+        function highlightPIs(formatted, original) {
+            if (original.match(/Hobson-Peters/)) {
+                return `<strong><u>${formatted}</u></strong>`;
+            }
+            if (original.match(/^Hall,\s*Roy/) || original.match(/^Hall,\s*R[\.\s]/)) {
+                return `<strong><u>${formatted}</u></strong>`;
+            }
+            return formatted;
+        }
+
         function renderPublicationsByYear(entries) {
             const container = document.getElementById('publications-by-year');
             
@@ -164,7 +190,7 @@
                                     <div class="publication_card">
                                         <div class="pub_year">${entry.year || 'N/A'}</div>
                                         <div class="pub_title">${entry.title || 'Untitled'}</div>
-                                        <div class="pub_authors">${entry.author || 'Unknown'}</div>
+                                        <div class="pub_authors">${formatAuthors(entry.author)}</div>
                                         <div class="pub_journal">
                                             ${entry.journal || ''}${entry.journal && entry.volume ? ', ' : ''}${entry.volume || ''}
                                             ${entry.pages ? ` pp. ${entry.pages}` : ''}
@@ -205,7 +231,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="team.html">People</a></li>
-                <li><a href="index.html#publications">Featured Publications</a></li>
+                <li><a href="index.html#publications">Latest Publications</a></li>
                 <li><a href="publications.html">All Publications</a></li>
                 <li><a href="announcements.html">News</a></li>
                 <li><a href="index.html#contact">Contact</a></li>

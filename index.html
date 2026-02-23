@@ -197,8 +197,8 @@
 
 <section class="publications_section" id="publications">
         <div class="section_container">
-                <h2 class="section_title" style="text-align: center; color: var(--primary);">Featured Publications</h2>
-                <p style="text-align: center; margin-bottom: 30px; color: var(--text);">Discover our latest research contributions</p>
+                <h2 class="section_title" style="text-align: center; color: var(--primary);">Latest Publications</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--text);">Our most recent research contributions</p>
                 
                 <!-- Featured Publications Grid -->
                 <div id="featured-articles" class="articles_grid"></div>
@@ -211,14 +211,47 @@
         fetch('references.json')
             .then(response => response.json())
             .then(entries => {
-                // Show only the 3 most recent publications
-                const featured = entries.sort((a, b) => (b.year || 0) - (a.year || 0)).slice(0, 3);
+                // Show specific latest publications from the lab
+                const targetTitles = [
+                    'Serum-Free Suspension Culture of the Aedes albopictus C6/36 Cell Line for Chimeric Orthoflavivirus Vaccine Production',
+                    'Unleashing Nature\'s Allies: Comparing the Vertical Transmission Dynamics of Insect-Specific and Vertebrate-Infecting Flaviviruses in Mosquitoes',
+                    'A chimeric vaccine derived from Australian genotype IV Japanese encephalitis virus protects mice from lethal challenge'
+                ];
+                const featured = targetTitles
+                    .map(t => entries.find(e => e.title === t))
+                    .filter(Boolean);
                 renderFeaturedPublications(featured);
             })
             .catch(error => {
                 document.getElementById('featured-articles').innerHTML = 
                     '<p style="color: var(--text); grid-column: 1/-1;">Error loading publications. Please ensure references.json exists.</p>';
             });
+
+        function formatAuthors(authorStr) {
+            if (!authorStr) return 'Unknown';
+            const authors = authorStr.split(' and ').map(a => a.trim());
+            return authors.map(a => {
+                const parts = a.split(',').map(p => p.trim());
+                if (parts.length < 2) {
+                    // No comma format (e.g. "Jody Hobson-Peters")
+                    return highlightPIs(a, a);
+                }
+                const lastName = parts[0];
+                const firstNames = parts[1].split(/\s+/);
+                const initials = firstNames.map(n => n.charAt(0).toUpperCase()).join('');
+                return highlightPIs(`${lastName} ${initials}`, a);
+            }).join(', ');
+        }
+
+        function highlightPIs(formatted, original) {
+            if (original.match(/Hobson-Peters/)) {
+                return `<strong><u>${formatted}</u></strong>`;
+            }
+            if (original.match(/^Hall,\s*Roy/) || original.match(/^Hall,\s*R[\.\s]/)) {
+                return `<strong><u>${formatted}</u></strong>`;
+            }
+            return formatted;
+        }
 
         function renderFeaturedPublications(entries) {
             const container = document.getElementById('featured-articles');
@@ -232,7 +265,7 @@
                 <div class="publication_card">
                     <div class="pub_year">${entry.year || 'N/A'}</div>
                     <div class="pub_title">${entry.title || 'Untitled'}</div>
-                    <div class="pub_authors">${entry.author || 'Unknown'}</div>
+                    <div class="pub_authors">${formatAuthors(entry.author)}</div>
                     <div class="pub_journal">
                         ${entry.journal || ''}${entry.journal && entry.volume ? ', ' : ''}${entry.volume || ''}
                         ${entry.pages ? ` pp. ${entry.pages}` : ''}
@@ -293,7 +326,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="team.html">People</a></li>
-                    <li><a href="index.html#publications">Featured Publications</a></li>
+                    <li><a href="index.html#publications">Latest Publications</a></li>
                     <li><a href="publications.html">All Publications</a></li>
                     <li><a href="announcements.html">News</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
