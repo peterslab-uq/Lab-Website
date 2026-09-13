@@ -61,17 +61,6 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Anchor targets must clear the sticky navbar, which is min-height 72px;
-   without this, in-page links scroll headings underneath it. */
-html {
-  scroll-padding-top: 72px;
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
 body {
   margin: 0;
   font-family: var(--sans);
