@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peters Laboratory">
+  <rect width="64" height="64" rx="12" fill="#14283F"/>
+  <path fill-rule="evenodd" fill="#4FB3A2"
+        d="M18 14 h16 a11 11 0 0 1 0 22 h-8 v14 h-8 Z
+           M26 21 h8 a4.5 4.5 0 0 1 0 9 h-8 Z"/>
+</svg>
